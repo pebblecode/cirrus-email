@@ -1,2 +1,4 @@
-# cirrus-email
+************
+cirrus-email
+************
 AWS SES Email helper

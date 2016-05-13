@@ -1,4 +1,5 @@
 import boto.ses
+import six
 
 from flask import current_app
 

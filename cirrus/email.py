@@ -13,10 +13,9 @@ def send_email(to_email_addresses, email_body, subject, from_email, from_name, t
     result = conn.send_email(
         source="%s <%s>" % (from_name, from_email),
         subject=subject,
-        body=email_body,
+        body=None,
+        html_body=email_body,
         to_addresses=to_email_addresses,
         format='html')
 
-    current_app.logger.info("Sent mail: " + result)
-    
-    
+    current_app.logger.info("Sent {result}", extra={'result': result})

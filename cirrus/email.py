@@ -8,7 +8,7 @@ def send_email(to_email_addresses, email_body, subject, from_email, from_name, t
     if isinstance(to_email_addresses, string_types):
         to_email_addresses = [to_email_addresses]
 
-    client = boto3.client('ses')
+    client = boto3.client('ses', region_name=region)
     
     response = client.send_email(
         Source="%s <%s>" % (from_name, from_email),

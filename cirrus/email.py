@@ -1,4 +1,4 @@
-import boto.ses
+import boto3
 import six
 
 from flask import current_app, flash
@@ -8,14 +8,21 @@ def send_email(to_email_addresses, email_body, subject, from_email, from_name, t
     if isinstance(to_email_addresses, string_types):
         to_email_addresses = [to_email_addresses]
 
-    conn = boto.ses.connect_to_region(region)
+    client = boto3.client('ses')
     
-    result = conn.send_email(
-        source="%s <%s>" % (from_name, from_email),
-        subject=subject,
-        body=None,
-        html_body=email_body,
-        to_addresses=to_email_addresses,
-        format='html')
+    response = client.send_email(
+        Source="%s <%s>" % (from_name, from_email),
+        Destination={'ToAddresses': to_email_addresses},
+        Message={
+        'Subject': {
+            'Data': subject
+        },
+        'Body': {
+            'Html': {
+                'Data': email_body
+            }
+        }
+        })
 
-    current_app.logger.info("Sent {result}", extra={'result': result})
+    current_app.logger.info("Sent response: {result} tags: {tags}", extra={'result': response, 'tags':tags})
+    

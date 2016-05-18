@@ -8,7 +8,7 @@ except IOError:
 
 setup(
     name="cirrus-email",
-    version="0.0.1",
+    version="0.0.2",
     description="AWS SES Email helpers for Project Cirrus",
     license="MIT",
     author="pebble {code}",

@@ -15,7 +15,7 @@ install_requires = [str(r.req) for r in requirements]
 
 setup(
     name="cirrus-email",
-    version="0.0.4",
+    version="0.0.5",
     description="AWS SES Email helpers for Project Cirrus",
     license="MIT",
     author="pebble {code}",

@@ -14,9 +14,9 @@ requirements = list(parse_requirements('requirements.txt',
 install_requires = [str(r.req) for r in requirements]
 
 setup(
-    name="cirrus-email",
-    version="0.0.5",
-    description="AWS SES Email helpers for Project Cirrus",
+    name="inoket-email",
+    version="0.0.6",
+    description="AWS SES Email helpers for Inoket",
     license="MIT",
     author="pebble {code}",
     packages=find_packages(),
